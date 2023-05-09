@@ -2,5 +2,6 @@
  hosts: all
  become: yes
  tasks:
-  - name: "Debug"
-    shell:"touch ~/file1.txt"
+   - name: debug
+     shell:
+        "touch ~/file1.txt"
