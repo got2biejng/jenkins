@@ -5,7 +5,5 @@
     username: bob
 
   tasks:
-  - name: Add the user {{ username }}
-    ansible.builtin.user:
-      name: "{{ username }}"
-      state: present
+  - name: "shell"
+      shell: touch ~/test.txt
