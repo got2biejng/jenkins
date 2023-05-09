@@ -1,7 +1,11 @@
 ---
-hosts: all
-become: yes
-tasks:
-   - name: debug
-     shell:
-        "touch ~/file1.txt"
+- name: Example Variables Playbook
+  hosts: all
+  vars:
+    username: bob
+
+  tasks:
+  - name: Add the user {{ username }}
+    ansible.builtin.user:
+      name: "{{ username }}"
+      state: present
