@@ -6,4 +6,4 @@
 
   tasks:
   - name: "shell"
-      shell: touch ~/test.txt
+      shell: "touch ~/test.txt"
