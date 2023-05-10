@@ -4,6 +4,6 @@
   tasks:
     - name: install nginx via apt
       ansible.builtin.yum:
-        name: nginx
+        name: httpd
         state: present
         update_cache: true
