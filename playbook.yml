@@ -1,7 +1,9 @@
 ---
-- name: Example Variables Playbook
-  hosts: all
-  vars:
-    username: bob
+- hosts: all
+  become: true
   tasks:
-  - ping
+   - name: add authkey from idrsa.pub
+     authorized_key:
+      user: ansibleuser2
+      state: present
+      key: "{{ lookup('file', '/home/admin/.ssh/id_rsa.pub') }}"
