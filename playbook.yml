@@ -2,5 +2,8 @@
 - hosts: all
   become: true
   tasks:
-   - name: ping
-     ping:
+    - name: install nginx via apt
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+        update_cache: true
