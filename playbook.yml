@@ -1,9 +1,10 @@
 ---
 - hosts: all
   become: true
+  vars:
+    users: -username:user1 password:pass1
   tasks:
-   - name: add authkey from idrsa.pub
-     authorized_key:
-      user: ansibleuser2
-      state: present
-      key: "{{ lookup('file', '/home/admin/.ssh/id_rsa.pub') }}"
+  user:
+    name: "{{item.username}}"
+    password: "{{item.password| password_hash('sha512')}}"
+    with_items: "{{users}}"
