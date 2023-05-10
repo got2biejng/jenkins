@@ -3,7 +3,6 @@
   hosts: all
   vars:
     username: bob
-
   tasks:
   - name: "shell"
-      shell: "touch ~/test.txt"
+      shell: ping -c 1 -w 8.8.8.8
